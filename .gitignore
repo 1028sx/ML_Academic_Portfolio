@@ -1,0 +1,90 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual Environments
+venv*/
+env/
+ENV/
+venv_academic*/
+anaconda_projects/
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+*.ipynb
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# AI Collaboration Files
+.claude/
+CLAUDE.md
+SPECMIX_IMPROVEMENT_PLAN.md
+prompt.md
+
+# Personal Learning Materials
+PERSONAL_LEARNING/
+*個人*
+*學習*
+*筆記*
+學習強化計劃.md
+核心結構.md
+
+# Large Data Files
+04_Data/voice_dataset/
+04_Data/processed/
+04_Data/raw/
+04_Data/*.csv
+
+# Training Outputs
+*/output/
+*/logs/
+*/checkpoints/
+*.log
+runs/
+wandb/
+
+# Submissions
+submissions/
+submission*.csv
+
+# Documentation (for academic review only)
+07_Documentation/
+05_Visualization/
+06_Academic_Presentation/
+08_Knowledge_Base/
+
+# Misc Files
+nul
+specmix_augmentation.py
+academic_presentation.html
+*.html
+
+# Model Files (keep only best models)
+*.pth
+*.pt
+*.pkl
+!best_models/*.pth
+!best_models/*.pt
+
+# Temporary Files
+*.tmp
+*.temp
+*.bak
+.cache/
+
+# System Files
+Thumbs.db
+desktop.ini
