@@ -19,6 +19,7 @@ anaconda_projects/
 # Jupyter Notebooks
 .ipynb_checkpoints
 *.ipynb
+*notebooks
 
 # IDE
 .vscode/
@@ -43,13 +44,16 @@ PERSONAL_LEARNING/
 核心結構.md
 
 # Large Data Files
+data/
 04_Data/voice_dataset/
 04_Data/processed/
 04_Data/raw/
 04_Data/*.csv
 
 # Training Outputs
-*/output/
+S1_MLP/output/
+S2_CNN/output/
+S3_Transformer/output/
 */logs/
 */checkpoints/
 *.log
@@ -60,15 +64,8 @@ wandb/
 submissions/
 submission*.csv
 
-# Documentation (for academic review only)
-07_Documentation/
-05_Visualization/
-06_Academic_Presentation/
-08_Knowledge_Base/
-
 # Misc Files
 nul
-specmix_augmentation.py
 academic_presentation.html
 *.html
 
