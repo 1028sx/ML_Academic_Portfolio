@@ -7,7 +7,7 @@ import argparse
 import json
 from tqdm import tqdm
 
-import transformer_config as cfg
+import config as cfg
 from models import get_model
 import torchaudio.transforms as T
 

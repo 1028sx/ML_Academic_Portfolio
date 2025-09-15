@@ -9,7 +9,7 @@ import json
 
 # 導入重構後的核心模組和新的設定中心
 from models import get_model
-import cnn_config as cfg
+import config as cfg
 from utils import AudioDataset # 我們需要它來進行單一樣本的預處理
 from data_pipeline import get_dataloaders # 為了自動產生 scaler 而導入
 

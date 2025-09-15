@@ -14,7 +14,7 @@ from helpers import (
     add_background_noise, shift_time, change_pitch_and_speed
 )
 # 導入新的設定中心
-import cnn_config as cfg
+import config as cfg
 
 # --- 新增：專門用於記錄過短檔案的 Logger ---
 # 確保 logs 目錄存在

@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 from utils import AudioDataset
 from helpers import calculate_scaler_stats
 # 導入新的設定中心
-import cnn_config as cfg
+import config as cfg
 
 def get_dataloaders(experiment_name: str, force_recalc_scaler: bool = False):
     """

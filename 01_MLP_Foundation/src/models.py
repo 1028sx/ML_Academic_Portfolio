@@ -1,8 +1,15 @@
+"""
+多層感知器（MLP）模型定義檔案。
+
+本檔案包含不同複雜度的 MLP 架構，從基礎的三層網路到包含正規化的深層網路。
+所有模型都針對音訊分類任務進行了優化。
+"""
 import torch
 import torch.nn as nn
 import inspect
 
 class V1_Baseline(nn.Module):
+    """基礎 MLP 模型：3層全連接網路。"""
     def __init__(self, model_cfg):
         super().__init__()
         input_dim = model_cfg['input_dim']
@@ -21,6 +28,7 @@ class V1_Baseline(nn.Module):
         return self.network(x)
 
 class V2_Deeper(nn.Module):
+    """更深的 MLP 模型：增加神經元數量以提升學習能力。"""
     def __init__(self, model_cfg):
         super().__init__()
         input_dim = model_cfg['input_dim']
@@ -39,6 +47,7 @@ class V2_Deeper(nn.Module):
         return self.network(x)
 
 class V3_AugLeaky(nn.Module):
+    """使用 LeakyReLU 激活函數的深層 MLP 模型。"""
     def __init__(self, model_cfg):
         super().__init__()
         input_dim = model_cfg['input_dim']
@@ -59,6 +68,7 @@ class V3_AugLeaky(nn.Module):
         return self.network(x)
         
 class V4_AdamW(nn.Module):
+    """針對 AdamW 優化器調整的 MLP 模型。"""
     def __init__(self, model_cfg):
         super().__init__()
         input_dim = model_cfg['input_dim']
@@ -79,6 +89,7 @@ class V4_AdamW(nn.Module):
         return self.network(x)
         
 class V5_Pooling(nn.Module):
+    """包含 Dropout 正規化的 MLP 模型，支援池化策略。"""
     def __init__(self, model_cfg):
         super().__init__()
         input_h = model_cfg['input_h']

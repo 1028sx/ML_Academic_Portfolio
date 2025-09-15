@@ -1,8 +1,15 @@
+"""
+卷積神經網路（CNN）模型定義檔案。
+
+本檔案包含不同複雜度的 CNN 架構，從基礎的雙層卷積到包含正規化和高級損失函式的深層網路。
+所有模型都針對音訊頻譜圖分類任務進行了優化。
+"""
 import torch
 import torch.nn as nn
 import inspect
 
 class V6_CNN_Baseline(nn.Module):
+    """基礎 CNN 模型：雙層卷積網路。"""
     def __init__(self, model_cfg):
         super().__init__()
         input_h = model_cfg['input_h']

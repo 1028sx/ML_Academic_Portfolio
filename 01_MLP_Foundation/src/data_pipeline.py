@@ -8,7 +8,7 @@ import glob
 # 導入 MLP 版本的模組
 from .utils import AudioDataset
 from .helpers import calculate_scaler_stats
-from . import mlp_config as cfg
+from . import config as cfg
 
 def collate_fn(batch):
     """

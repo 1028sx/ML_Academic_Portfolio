@@ -13,7 +13,7 @@ from torch.utils.data import DataLoader
 import matplotlib.pyplot as plt
 
 # 本地模組導入
-import transformer_config as cfg
+import config as cfg
 from models import get_model
 from data_pipeline import get_dataloaders
 from utils import EarlyStopping

@@ -8,8 +8,8 @@ import torchaudio
 from tqdm import tqdm
 
 # 導入 MLP 專案的相關模組
-from . import mlp_config as cfg
-from .mlp_models import get_model
+from . import config as cfg
+from .models import get_model
 from .data_pipeline import get_dataloaders # 為了自動產生 scaler 而導入
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")

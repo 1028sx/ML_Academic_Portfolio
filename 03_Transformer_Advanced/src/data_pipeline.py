@@ -19,10 +19,10 @@ def run_health_check(df: pd.DataFrame, data_dir: str, sample_rate: int) -> pd.Da
     """
     對音頻檔案進行健康檢查，過濾掉損壞或遺失的檔案。
     """
-    pipeline_logger.info("--- Starting audio file health check ---")
+    pipeline_logger.info("--- 開始音頻檔案健康檢查 ---")
     healthy_indices = []
     unhealthy_files = []
-    for index, row in tqdm(df.iterrows(), total=df.shape[0], desc="Checking audio files"):
+    for index, row in tqdm(df.iterrows(), total=df.shape[0], desc="檢查音頻檔案"):
         file_path = os.path.join(data_dir, row['wav'])
         try:
             if not os.path.exists(file_path):
@@ -35,12 +35,12 @@ def run_health_check(df: pd.DataFrame, data_dir: str, sample_rate: int) -> pd.Da
             unhealthy_files.append(row['wav'])
             pipeline_logger.error(f"File '{row['wav']}' is unhealthy and will be excluded. Error: {e}", exc_info=False)
     
-    pipeline_logger.info("--- Health check complete ---")
-    pipeline_logger.info(f"Total files checked: {len(df)}")
-    pipeline_logger.info(f"Found {len(healthy_indices)} healthy files.")
-    pipeline_logger.info(f"Excluded {len(unhealthy_files)} unhealthy files.")
+    pipeline_logger.info("--- 健康檢查完成 ---")
+    pipeline_logger.info(f"已檢查檔案總數: {len(df)}")
+    pipeline_logger.info(f"發現健康檔案: {len(healthy_indices)} 個")
+    pipeline_logger.info(f"排除不健康檔案: {len(unhealthy_files)} 個")
     if unhealthy_files:
-        pipeline_logger.warning(f"List of unhealthy files: {unhealthy_files}")
+        pipeline_logger.warning(f"不健康檔案清單: {unhealthy_files}")
     return df.loc[healthy_indices].copy()
 
 class AudioDataset(Dataset):

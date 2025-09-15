@@ -12,11 +12,11 @@ import torch.optim as optim
 from torch.utils.data import DataLoader
 
 # 本地模組導入
-from .mlp_models import get_model
+from .models import get_model
 from .data_pipeline import get_dataloaders
 from .utils import EarlyStopping
 from .helpers import plot_accuracy, plot_loss
-from . import mlp_config as cfg
+from . import config as cfg
 
 # 全域變數
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -136,13 +136,13 @@ def run_experiment(experiment_name: str):
         history['val_loss'].append(epoch_val_loss)
         history['val_acc'].append(epoch_val_acc)
 
-        logging.info(f'Epoch {epoch+1}/{train_params["epochs"]} | '
-                     f'Train Loss: {epoch_train_loss:.4f}, Train Acc: {epoch_train_acc:.4f} | '
-                     f'Val Loss: {epoch_val_loss:.4f}, Val Acc: {epoch_val_acc:.4f}')
+        logging.info(f'第 {epoch+1}/{train_params["epochs"]} 輪 | '
+                     f'訓練損失: {epoch_train_loss:.4f}, 訓練準確率: {epoch_train_acc:.4f} | '
+                     f'驗證損失: {epoch_val_loss:.4f}, 驗證準確率: {epoch_val_acc:.4f}')
         
         early_stopping(epoch_val_loss, model)
         if early_stopping.early_stop:
-            logging.info("Early stopping 觸發")
+            logging.info("提前停止訓練")
             break
 
     logging.info("--- 訓練完成 ---")
@@ -168,7 +168,7 @@ def main():
     parser.add_argument(
         'experiment_name', 
         type=str, 
-        help='要運行的實驗名稱 (定義於 mlp_config.py)。',
+        help='要運行的實驗名稱 (定義於 config.py)。',
         choices=list(cfg.EXPERIMENTS.keys())
     )
     args = parser.parse_args()

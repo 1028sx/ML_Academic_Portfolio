@@ -10,7 +10,7 @@ from .helpers import (
     load_audio, get_mel_spectrogram
 )
 # 導入 MLP 版本的設定
-from . import mlp_config as cfg
+from . import config as cfg
 
 class AudioDataset(Dataset):
     """
